@@ -271,6 +271,9 @@ export default {
         this.temp.jdbcDriverClass = 'org.apache.hive.jdbc.HiveDriver'
         this.hbase = this.mongodb = false
         this.jdbc = true
+      } else if (datasource === 'dm') {
+        this.temp.jdbcUrl = 'jdbc:dm://{host}:{port}/{database}?zeroDateTimeBehavior=convertToNull&useUnicode=true&characterEncoding=utf-8'
+        this.temp.jdbcDriverClass = 'dm.jdbc.driver.DmDriver'
       }
       this.getShowStrategy(datasource)
     },
